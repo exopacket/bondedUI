@@ -1,5 +1,5 @@
 import args from "args"
-import { html } from "./renderer.js"
+import {html} from "./renderer.js"
 
 args
     .option('data', 'JSON input for component data.')

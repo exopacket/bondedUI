@@ -1,9 +1,9 @@
-import { createSSRApp } from 'vue'
-import { renderToString } from 'vue/server-renderer'
+import {createSSRApp} from 'vue'
+import {renderToString} from 'vue/server-renderer'
 
 export async function html(flags) {
 
-    if(flags.data) {
+    if (flags.data) {
 
         const data = flags.data;
 
