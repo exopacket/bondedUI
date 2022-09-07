@@ -17,4 +17,5 @@
     color: #3e8ef7; }
 
 .page-code-editor .CodeMirror {
-  height: 100%; }
+  height: calc(100% - 67px);
+}

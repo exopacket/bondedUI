@@ -3218,7 +3218,7 @@ module.exports={
     "sanitize-caja": "0.1.4"
   },
   "scripts": {
-    "test": "eslint --no-eslintrc -c .eslintrc src && phantomjs node_modules/mocha-phantomjs-core/mocha-phantomjs-core.js test/index.html"
+    "test": "eslint --no-eslintrc -c .eslintrc src && phantomjs node_modules/mocha-phantomjs-core/mocha-phantomjs-core.js test/index.php"
   },
   "license": "BSD-3-Clause",
   "devDependencies": {

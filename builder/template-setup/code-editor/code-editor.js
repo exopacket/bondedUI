@@ -25,41 +25,27 @@
     (function () {
         var data = [{
             text: 'hyperUI Configuration',
-            href: '#package.json',
+            href: 'javascript: getEditorUpdate(0)',
             icon: 'fa fa-file-code-o',
         }, {
-            text: 'Component Info',
-            href: '#css',
-            icon: 'fa fa-info'
+            text: 'HTML',
+            href: 'javascript: getEditorUpdate(1)',
+            icon: 'fa fa-code'
         },
             {
-                text: 'Template',
-                href: '#css',
-                icon: 'fa fa-paint-brush',
-                state: {
-                    expanded: true
-                },
-                nodes: [
-                    {
-                        text: 'HTML',
-                        href: '#css',
-                        icon: 'fa fa-code'
-                    },
-                    {
-                        text: 'Data',
-                        href: '#css',
-                        icon: 'fa fa-file-text'
-                    },
-                    {
-                        text: 'UI Methods',
-                        href: '#css',
-                        icon: 'fa fa-object-group'
-                    }],
+                text: 'Data',
+                href: 'javascript: getEditorUpdate(2)',
+                icon: 'fa fa-file-text'
             },
             {
-                text: 'JavaScript Tasks',
-                href: '#css',
-                icon: 'fa fa-terminal'
+                text: 'UI Methods',
+                href: 'javascript: getEditorUpdate(3)',
+                icon: 'fa fa-object-group'
+            },
+            {
+                text: 'Tasks',
+                href: 'javascript: getEditorUpdate(4)',
+                icon: 'fa fa-terminal',
             }
         ];
         var defaults = Plugin.getDefaults("treeview");
@@ -69,65 +55,18 @@
             color: false,
             backColor: false,
             borderColor: false,
-            onhoverColor: false,
+            onhoverColor: true,
             selectedColor: false,
             selectedBackColor: false,
             searchResultColor: false,
             searchResultBackColor: false,
             data: data,
-            highlightSelected: true
+            highlightSelected: false,
+            enableLinks: true,
         });
 
         (0, _jquery.default)('#filesTree').treeview(options);
     })(); // Codemirror
-    // ----------
-
-
-    CodeMirror.fromTextArea(document.getElementById('code'), {
-        lineNumbers: !0,
-        theme: 'eclipse',
-        mode: 'text/html',
-        scrollbarStyle: "simple"
-    }); // Contextmenu
+    // ----------// Contextmenu
     // -----------
-
-    _jquery.default.contextMenu({
-        selector: '#filesTree',
-        // callback: function(key, options) {
-        //   var m = "clicked: " + key;
-        //   window.console && console.log(m) || alert(m);
-        // },
-        items: (_items = {
-            "rename": {
-                name: "Rename ...",
-                icon: function icon() {
-                    return 'context-menu-icon context-menu-extend-icon wb-pencil';
-                }
-            },
-            "search": {
-                name: "Find in...",
-                icon: function icon() {
-                    return 'context-menu-icon context-menu-extend-icon wb-search';
-                }
-            },
-            "sep1": "---------",
-            "new": {
-                name: "New File",
-                icon: function icon() {
-                    return 'context-menu-icon context-menu-extend-icon wb-file';
-                }
-            },
-            "new-folder": {
-                name: "New Folder",
-                icon: function icon() {
-                    return 'context-menu-icon context-menu-extend-icon wb-folder';
-                }
-            }
-        }, babelHelpers.defineProperty(_items, "sep1", "---------"), babelHelpers.defineProperty(_items, "delete", {
-            name: "Delete",
-            icon: function icon() {
-                return 'context-menu-icon context-menu-extend-icon wb-close';
-            }
-        }), _items)
-    });
 });

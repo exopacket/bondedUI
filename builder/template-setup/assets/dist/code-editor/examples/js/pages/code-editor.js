@@ -114,8 +114,8 @@
         href: '#docs.html',
         icon: 'fa fa-file-code-o'
       }, {
-        text: 'index.html',
-        href: '#index.html',
+        text: 'index.php',
+        href: '#index.php',
         state: {
           selected: true
         },

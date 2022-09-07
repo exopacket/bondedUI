@@ -10,7 +10,7 @@ class HyperFile {
 
     public function __construct($name) {
 
-        $contents = file_get_contents("../config/$name.hyper");
+        $contents = file_get_contents("../build/config/$name.hyper");
         $this->parse($contents);
 
     }

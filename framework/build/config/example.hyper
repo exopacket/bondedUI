@@ -1,13 +1,12 @@
-
 info {
-
-    name = example;
-
+    name = "";
 }
 
 template {
 
-    html = test.html;
+    html {
+
+    }
 
     data {
 
@@ -20,7 +19,5 @@ template {
 }
 
 script {
-
-
 
 } ExampleScript;
