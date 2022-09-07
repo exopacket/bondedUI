@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>HyperUI Builder</title>
+
+    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/dist/code-editor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/dist/code-editor/css/bootstrap-extend.min.css">
+    <link rel="stylesheet" href="assets/dist/code-editor/css/site.min.css">
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="assets/dist/code-editor/vendoranimsition/animsition.css">
+    <link rel="stylesheet" href="assets/dist/code-editor/vendorasscrollable/asScrollable.css">
+    <link rel="stylesheet" href="assets/dist/code-editor/vendorswitchery/switchery.css">
+    <link rel="stylesheet" href="assets/dist/code-editor/vendorintro-js/introjs.css">
+    <link rel="stylesheet" href="assets/dist/code-editor/vendorslidepanel/slidePanel.css">
+    <link rel="stylesheet" href="assets/dist/code-editor/vendorflag-icon-css/flag-icon.css">
+    <link rel="stylesheet" href="assets/dist/code-editor/vendorbootstrap-treeview/bootstrap-treeview.css">
+    <link rel="stylesheet" href="assets/dist/code-editor/vendorcodemirror/codemirror.css">
+    <link rel="stylesheet" href="assets/dist/code-editor/vendorcodemirror/addon/scroll/simplescrollbars.css">
+    <link rel="stylesheet" href="assets/dist/code-editor/vendorjquery-contextmenu/jquery.contextMenu.css">
+    <link rel="stylesheet" href="assets/dist/code-editor/examplescss/pages/code-editor.css">
+
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="assets/dist/code-editor/fonts/font-awesome/font-awesome.css">
+    <link rel="stylesheet" href="assets/dist/code-editor/fonts/web-icons/web-icons.min.css">
+    <link rel="stylesheet" href="assets/dist/code-editor/fonts/brand-icons/brand-icons.min.css">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+
+    <!--[if lt IE 9]>
+    <script src="assets/dist/code-editor/vendorhtml5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 10]>
+    <script src="assets/dist/code-editor/vendormedia-match/media.match.min.js"></script>
+    <script src="assets/dist/code-editor/vendorrespond/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Scripts -->
+    <script src="assets/dist/code-editor/vendorbreakpoints/breakpoints.js"></script>
+    <script>
+        Breakpoints();
+    </script>
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+
+</head>
+<body style="overflow: scroll;">
+
+<div class="py-3 container container-fluid">
+    <header>
+        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+                <span class="fs-4">HyperUI Builder</span>
+            </a>
+
+            <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+
+                <input id="file-input" class="form-control me-2" type="search" placeholder="Vue.js Component File" aria-label="Vue.js Component File"
+                    value="compact-table.vue"
+                >
+                <a class="me-3 py-2 text-dark text-decoration-none btn btn-outline-primary btn-sm" href="#" style="width: 200px;">Load File</a>
+                <div class="vr" style="background-color: #000; opacity: 0.30; margin-right: 15px;"></div>
+                <a class="me-3 py-2 text-dark text-decoration-none btn btn-info btn-sm" href="#" style="width: 200px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="padding-top: 1.5px;" width="16" height="16" fill="currentColor" class="bi bi-braces-asterisk" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C2.25 2 1.49 2.759 1.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6ZM14.886 7.9v.164c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456v-1.3c-1.114 0-1.49-.362-1.49-1.456V4.352C14.51 2.759 13.75 2 12.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6ZM7.5 11.5V9.207l-1.621 1.621-.707-.707L6.792 8.5H4.5v-1h2.293L5.172 5.879l.707-.707L7.5 6.792V4.5h1v2.293l1.621-1.621.707.707L9.208 7.5H11.5v1H9.207l1.621 1.621-.707.707L8.5 9.208V11.5h-1Z"/>
+                    </svg>
+                    &nbsp;&nbsp;Editor
+                </a>
+                <a class="me-3 py-2 text-white text-decoration-none btn btn-success btn-sm" href="#" style="width: 200px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="padding-top: 1.5px;" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                    </svg>
+                    &nbsp;&nbsp;Export
+                </a>
+
+            </nav>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <main class="row justify-content-center" >
+
+            <iframe id="main-iframe" style="min-height: 100vh" scrolling="no"></iframe>
+
+        </main>
+    </div>
+    <div class="py-3 container container-fluid" style="display:none;">
+        <div class="site-gridmenu">
+            <div>
+                <div>
+                    <ul>
+                        <li>
+                            <a href="../apps/mailbox/mailbox.html">
+                                <i class="icon wb-envelope"></i>
+                                <span>Mailbox</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../apps/calendar/calendar.html">
+                                <i class="icon wb-calendar"></i>
+                                <span>Calendar</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../apps/contacts/contacts.html">
+                                <i class="icon wb-user"></i>
+                                <span>Contacts</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../apps/media/overview.html">
+                                <i class="icon wb-camera"></i>
+                                <span>Media</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../apps/documents/categories.html">
+                                <i class="icon wb-order"></i>
+                                <span>Documents</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../apps/projects/projects.html">
+                                <i class="icon wb-image"></i>
+                                <span>Project</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../apps/forum/forum.html">
+                                <i class="icon wb-chat-group"></i>
+                                <span>Forum</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../index.html">
+                                <i class="icon wb-dashboard"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <div class="page-aside">
+                <div class="page-aside-switch">
+                    <i class="icon wb-chevron-left" aria-hidden="true"></i>
+                    <i class="icon wb-chevron-right" aria-hidden="true"></i>
+                </div>
+                <div class="page-aside-inner page-aside-scroll">
+                    <div data-role="container">
+                        <div data-role="content">
+                            <section class="page-aside-section">
+                                <h4 class="page-aside-title">Code Editor</h4>
+                                <div id="filesTree"></div>
+                                <!-- Your custom menu with dropdown-menu as default styling -->
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-main">
+                <div class="page-content">
+          <textarea id="code"><!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <p>Hello world! This is HTML5 Boilerplate.</p>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery//jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+    </body>
+</html></textarea>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    window.onload = function () {
+        loadVue();
+    }
+
+    function loadVue() {
+
+        const elem = document.getElementById("file-input")
+        const val = elem.value;
+
+        const frame = document.getElementById("main-iframe");
+        frame.src = "iframe-src.php?filepath=" + encodeURIComponent(val);
+
+        frame.onload = function() {
+
+            frame.style.height =
+                frame.contentWindow.document.body.scrollHeight + 'px';
+
+            frame.style.width  =
+                frame.contentWindow.document.body.scrollWidth+'px';
+
+        }
+
+    }
+
+</script>
+
+<script src="assets/dist/code-editor/vendorbabel-external-helpers/babel-external-helpers.js"></script>
+<script src="assets/dist/code-editor/vendorjquery/jquery.js"></script>
+<script src="assets/dist/code-editor/vendorpopper-js/umd/popper.min.js"></script>
+<script src="assets/dist/code-editor/vendorbootstrap/bootstrap.js"></script>
+<script src="assets/dist/code-editor/vendoranimsition/animsition.js"></script>
+<script src="assets/dist/code-editor/vendormousewheel/jquery.mousewheel.js"></script>
+<script src="assets/dist/code-editor/vendorasscrollbar/jquery-asScrollbar.js"></script>
+<script src="assets/dist/code-editor/vendorasscrollable/jquery-asScrollable.js"></script>
+<script src="assets/dist/code-editor/vendorashoverscroll/jquery-asHoverScroll.js"></script>
+
+<!-- Plugins -->
+<script src="assets/dist/code-editor/vendorswitchery/switchery.js"></script>
+<script src="assets/dist/code-editor/vendorintro-js/intro.js"></script>
+<script src="assets/dist/code-editor/vendorscreenfull/screenfull.js"></script>
+<script src="assets/dist/code-editor/vendorslidepanel/jquery-slidePanel.js"></script>
+<script src="assets/dist/code-editor/vendorbootstrap-treeview/bootstrap-treeview.min.js"></script>
+<script src="assets/dist/code-editor/vendorcodemirror/codemirror.js"></script>
+<script src="assets/dist/code-editor/vendorcodemirror/addon/scroll/simplescrollbars.js"></script>
+<script src="assets/dist/code-editor/vendorcodemirror/mode/xml/xml.js"></script>
+<script src="assets/dist/code-editor/vendorcodemirror/mode/css/css.js"></script>
+<script src="assets/dist/code-editor/vendorcodemirror/mode/htmlmixed/htmlmixed.js"></script>
+<script src="assets/dist/code-editor/vendorjquery-contextmenu/jquery.contextMenu.js"></script>
+
+<!-- Scripts -->
+<script src="assets/dist/code-editor/js/Component.js"></script>
+<script src="assets/dist/code-editor/js/Plugin.js"></script>
+<script src="assets/dist/code-editor/js/Base.js"></script>
+<script src="assets/dist/code-editor/js/Config.js"></script>
+
+<script src="assets/dist/code-editor/js/Section/Menubar.js"></script>
+<script src="assets/dist/code-editor/js/Section/GridMenu.js"></script>
+<script src="assets/dist/code-editor/js/Section/Sidebar.js"></script>
+<script src="assets/dist/code-editor/js/Section/PageAside.js"></script>
+<script src="assets/dist/code-editor/js/Plugin/menu.js"></script>
+
+<script src="assets/dist/code-editor/js/config/colors.js"></script>
+<script src="assets/dist/code-editor/js/config/tour.js"></script>
+<script>Config.set('assets', '../../assets');</script>
+
+<!-- Page -->
+<script src="assets/dist/code-editor/js/Site.js"></script>
+<script src="assets/dist/code-editor/js/Plugin/asscrollable.js"></script>
+<script src="assets/dist/code-editor/js/Plugin/slidepanel.js"></script>
+<script src="assets/dist/code-editor/js/Plugin/switchery.js"></script>
+<script src="assets/dist/code-editor/js/Plugin/bootstrap-treeview.js"></script>
+
+<script src="assets/dist/code-editor/examplesjs/pages/code-editor.js"></script>
+
+</body>
+</html>

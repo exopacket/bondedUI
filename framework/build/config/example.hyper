@@ -1,0 +1,26 @@
+
+info {
+
+    name = example;
+
+}
+
+template {
+
+    html = test.html;
+
+    data {
+
+    }
+
+    methods {
+
+    }
+
+}
+
+script {
+
+
+
+} ExampleScript;
