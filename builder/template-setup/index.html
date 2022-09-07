@@ -10,8 +10,6 @@
 
     <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-
-
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -120,6 +118,7 @@
 
             <iframe id="editor-iframe" scrolling="no" style="min-height: 100vh"></iframe>
 
+
         </main>
     </div>
 </div>
@@ -150,7 +149,7 @@
         }
 
         const editor = document.getElementById("editor-iframe");
-        editor.src = "code-editor.php?name=" + encodeURIComponent(name);
+        editor.src = "code-editor/code-editor.php?name=" + encodeURIComponent(name);
 
         editor.onload = function () {
 
