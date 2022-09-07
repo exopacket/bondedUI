@@ -1,4 +1,6 @@
-# vuejs-php-components
+# bondedUI
+
+<b>the perfect bond with client side & server side.</b>
 
 When complete this repo will contain a Vue.js component viewer, editor, and PHP component generator.
 
