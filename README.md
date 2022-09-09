@@ -10,4 +10,4 @@ The purpose of this is to quickly produce web applications using the Vue.js fram
 
 <b>Think SwiftUI or Flutter! .. but for PHP </b>
 
-Currently the tailwind ui kit is being used.
+Currently the tailwind ui kit is being used for the built PHP components.
