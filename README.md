@@ -2,7 +2,9 @@
 
 <b>the perfect bond between client side & server side.</b>
 
-When complete this repo will contain a Vue.js component viewer, editor, and PHP component generator.
+This is a side project and will take some time. It's currently a mess of files..
+
+<br><br>When complete this repo will contain a Vue.js component viewer, editor, and PHP component generator.
 
 By using a '.vue' Single File Component (SFC) you will be able to call one of the two php scripts to fetch the html of the template (via web client javascript or server side php).
 
