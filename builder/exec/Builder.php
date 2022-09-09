@@ -13,7 +13,7 @@ class Builder
 
     public function __construct($buildDir, $info, $template, $tasks)
     {
-        $this->json = json_decode(file_get_contents("/Applications/MAMP/htdocs/hyperUI/builder/exec/config.json"));
+        $this->json = json_decode(file_get_contents("/Applications/MAMP/htdocs/bondedUI/builder/exec/config.json"));
         $this->buildDir = $buildDir;
         $this->info = $info;
         $this->template = $template;
@@ -23,7 +23,7 @@ class Builder
     public static function cacheIsEmpty()
     {
 
-        $content = file_get_contents("/Applications/MAMP/htdocs/hyperUI/builder/exec/cache.hyper");
+        $content = file_get_contents("/Applications/MAMP/htdocs/bondedUI/builder/exec/cache.bonded");
         $lines = explode("\n", $content);
         $line = $lines[0];
 
@@ -34,7 +34,7 @@ class Builder
     public static function getConfig()
     {
 
-        return json_decode(file_get_contents("/Applications/MAMP/htdocs/hyperUI/builder/exec/config.json"));
+        return json_decode(file_get_contents("/Applications/MAMP/htdocs/bondedUI/builder/exec/config.json"));
 
     }
 

@@ -928,7 +928,7 @@ L.Mixin = {Events: proto};
 		touch: !!touch,
 
 		// @property msPointer: Boolean
-		// `true` for browsers implementing the Microsoft touch events model (notably IE10).
+		// `true` for browsers implementing the Microsoft touch events models (notably IE10).
 		msPointer: !!msPointer,
 
 		// @property pointer: Boolean
@@ -6798,7 +6798,7 @@ L.divIcon = function (options) {
  * @class DivOverlay
  * @inherits Layer
  * @aka L.DivOverlay
- * Base model for L.Popup and L.Tooltip. Inherit from it for custom popup like plugins.
+ * Base models for L.Popup and L.Tooltip. Inherit from it for custom popup like plugins.
  */
 
 // @namespace DivOverlay

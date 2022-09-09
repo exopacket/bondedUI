@@ -14677,7 +14677,7 @@ var OptionsManager = /** @class */ (function (_super) {
     OptionsManager.prototype.add = function (newOptionHash) {
         var optionCnt = 0;
         var optionName;
-        this.recordOverrides(newOptionHash); // will trigger this model's watchers
+        this.recordOverrides(newOptionHash); // will trigger this models's watchers
         for (optionName in newOptionHash) {
             optionCnt++;
         }
@@ -14692,7 +14692,7 @@ var OptionsManager = /** @class */ (function (_super) {
                 return; // can't change date this way. use gotoDate instead
             }
             else if (optionName === 'businessHours') {
-                return; // this model already reacts to this
+                return; // this models already reacts to this
             }
             else if (/^(event|select)(Overlap|Constraint|Allow)$/.test(optionName)) {
                 return; // doesn't affect rendering. only interactions.

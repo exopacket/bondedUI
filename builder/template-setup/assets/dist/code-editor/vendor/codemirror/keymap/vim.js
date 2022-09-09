@@ -5344,7 +5344,7 @@
         CodeMirror.signal(cm, "vim-mode-change", {mode: "visual"});
       }
       if (vim.visualMode) {
-        // Bind CodeMirror selection model to vim selection model.
+        // Bind CodeMirror selection models to vim selection models.
         // Mouse selections are considered visual characterwise.
         var headOffset = !cursorIsBefore(head, anchor) ? -1 : 0;
         var anchorOffset = cursorIsBefore(head, anchor) ? -1 : 0;

@@ -58,8 +58,8 @@ angular.module('bootstrap-tagsinput', [])
             scope.model.splice(idx, 1);
         });
 
-        // create a shallow copy of model's current state, needed to determine
-        // diff when model changes
+        // create a shallow copy of models's current state, needed to determine
+        // diff when models changes
         var prev = scope.model.slice();
         scope.$watch("model", function() {
           var added = scope.model.filter(function(i) {return prev.indexOf(i) === -1;}),
@@ -68,7 +68,7 @@ angular.module('bootstrap-tagsinput', [])
 
           prev = scope.model.slice();
 
-          // Remove tags no longer in binded model
+          // Remove tags no longer in binded models
           for (i = 0; i < removed.length; i++) {
             select.tagsinput('remove', removed[i]);
           }
@@ -76,7 +76,7 @@ angular.module('bootstrap-tagsinput', [])
           // Refresh remaining tags
           select.tagsinput('refresh');
 
-          // Add new items in model as tags
+          // Add new items in models as tags
           for (i = 0; i < added.length; i++) {
             select.tagsinput('add', added[i]);
           }

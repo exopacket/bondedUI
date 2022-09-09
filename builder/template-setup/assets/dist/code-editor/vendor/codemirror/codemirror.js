@@ -8874,7 +8874,7 @@
 
     var old = sel.rangeCount && sel.getRangeAt(0), rng;
     try { rng = range(start.node, start.offset, end.offset, end.node); }
-    catch(e) {} // Our model of the DOM might be outdated, in which case the range we try to set can be impossible
+    catch(e) {} // Our models of the DOM might be outdated, in which case the range we try to set can be impossible
     if (rng) {
       if (!gecko && cm.state.focused) {
         sel.collapse(start.node, start.offset);

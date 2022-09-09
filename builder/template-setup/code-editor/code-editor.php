@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="generator" content="Hugo 0.101.0">
-    <title>HyperUI Builder</title>
+    <title>bondedUI Builder</title>
 
     <!-- Stylesheets -->
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -138,7 +138,7 @@
 
                 <div id="configuration-options" style="display: none;">
                     <nav id="configuration-nav" class="navbar navbar-expand-lg navbar-light bg-light">
-                        <a class="navbar-brand" href="#">hyperUI Builder</a>
+                        <a class="navbar-brand" href="#">bondedUI Builder</a>
                         <div class="navbar-nav mr-auto" style="margin-left: auto; margin-right: 25px !important;">
                             <ul class="nav navbar-nav">
                                 <li class="nav-item active">

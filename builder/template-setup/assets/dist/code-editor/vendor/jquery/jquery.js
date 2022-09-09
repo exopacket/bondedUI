@@ -6478,7 +6478,7 @@ function boxModelAdjustment( elem, dimension, box, isBorderBox, styles, computed
 
 	for ( ; i < 4; i += 2 ) {
 
-		// Both box models exclude margin
+		// Both box sections exclude margin
 		if ( box === "margin" ) {
 			delta += jQuery.css( elem, box + cssExpand[ i ], true, styles );
 		}
@@ -6586,7 +6586,7 @@ function getWidthOrHeight( elem, dimension, extra ) {
 	// Normalize "" and auto
 	val = parseFloat( val ) || 0;
 
-	// Adjust for the element's box model
+	// Adjust for the element's box models
 	return ( val +
 		boxModelAdjustment(
 			elem,

@@ -2,7 +2,7 @@
 
 $filename = "blank-template";
 
-$contents = file_get_contents("../exec/cache.hyper");
+$contents = file_get_contents("../exec/cache.bonded");
 $lines = explode("\n", $contents);
 
 $firstLine = $lines[0];
@@ -25,7 +25,7 @@ $files = scandir($componentsDir);
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.101.0">
-    <title>hyperUI Builder</title>
+    <title>bondedUI Builder</title>
 
     <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
@@ -91,7 +91,7 @@ $files = scandir($componentsDir);
     <header>
         <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
             <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-                <span class="fs-4">hyperUI Builder</span>
+                <span class="fs-4">bondedUI Builder</span>
             </a>
 
             <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">

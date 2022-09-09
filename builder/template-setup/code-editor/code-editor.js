@@ -24,7 +24,7 @@
 
     (function () {
         var data = [{
-            text: 'hyperUI Configuration',
+            text: 'bondedUI Configuration',
             href: 'javascript: getEditorUpdate(0)',
             icon: 'fa fa-file-code-o',
         }, {

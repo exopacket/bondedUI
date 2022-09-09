@@ -1549,7 +1549,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        ONREADYSTATECHANGE = "onreadystatechange",
 	        REMOVEEVENTLISTENER = "removeEventListener",
 	    
-	        // W3C Event model
+	        // W3C Event models
 	        w3c = ADDEVENTLISTENER in doc,
 	        _top = FALSE,
 	    
@@ -1621,7 +1621,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        // A fallback to window.onload, that will always work
 	        win[ADDEVENTLISTENER]( LOAD, completed, FALSE );
 	    
-	    // If IE event model is used
+	    // If IE event models is used
 	    } else {
 	        // Ensure firing before onload, maybe late but safe also for iframes
 	        doc[ATTACHEVENT]( ONREADYSTATECHANGE, completed );
