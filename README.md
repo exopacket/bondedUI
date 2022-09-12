@@ -2,12 +2,12 @@
 
 <b>the perfect bond between client side & server side.</b>
 
-When complete this repo will contain a Vue.js component viewer, editor, and PHP component generator.
+This is a side project and will take some time. It's currently a mess of files..
 
-By using a '.vue' Single File Component (SFC) you will be able to call one of the two php scripts to fetch the html of the template (via web client javascript or server side php).
+<br><br>When complete this repo will contain a Vue.js component viewer, editor, and PHP component generator to use with the larger PHP framework that combines the client side and server side processes into one code base.
 
-The purpose of this is to quickly produce web designs using the Vue.js framework and PHP together. You'll simply pass the 'data' JSON object and it will return the html from both client side or server side. Rapidly decreasing development time while using the right amount of client side and server side rendering. 
+The purpose of this is to quickly produce web applications using the Vue.js framework and PHP together.
 
-<b>Think SwiftUI or Flutter! .. but for PHP (+ generated client side code)</b>
+<b>Think SwiftUI or Flutter! .. but for PHP </b>
 
-Currently the tailwind ui kit is being used.
+Currently the tailwind ui kit is being used for the built PHP components.

@@ -1,0 +1,118 @@
+<?php
+
+    include("/path/to/autoload");
+
+    Bond::start();
+
+    Bond::imports(IMPORTS::DEFAULT, IMPORTS::CUSTOM(/path/to/complete/imports/file));
+
+    Bond::in(new Session(
+
+        )
+    );
+
+    Bond::in(new CookieMap(
+
+        )
+    );
+
+    Bond::pong(new Pong( //if set, pinging the page for data is accepted; will die before getting to page object (next)
+
+        )
+    );
+
+    Bond::in(new Page(
+
+        )
+    );
+
+    Bond::out(STYLESHEETS);
+
+    Bond::in(new Layout({
+                settings: settings,
+                type: type,
+                name: name,
+                mountpoints: ["app1", "app2", "sidebar", "navbar", "body"]
+            }
+        )
+    );
+
+    Bond::mount("navbar", new NavBar({
+
+
+        }
+    );
+
+    Bond::mount("body", new Container({ //body mountpoint child
+
+            //container settings
+
+        }, new Column({ //container child
+
+            //column settings
+
+        }, [
+
+            //column children
+
+        ]), new Text({ //next in order element
+
+        })
+       )
+      )
+    );
+
+    Bond::out(VARIABLES, SCRIPTS);
+
+    Bond::close();
+
+?>
+
+//TODO check interface and task syntax.... need for Bond::task("name", new function() { }) or not
+
+*** Bond::start ***
+
+    Opens connections, files, and parses headers.
+
+*** Bond::in ***
+
+    UI objects and their children, data, and settings being set
+    and stored in the pages Bond store
+
+*** Bond::out ***
+
+    Data that has been set in the global Bond store
+    which needs to be put on the current page
+
+*** Bond::mount ***
+
+    ( ROOT MOUNTPOINT , FIRST ELEMENT( { SETTINGS } , [ CHILD / CHILDREN ] , NEXT ELEMENT( ...
+
+          ...   , LAST "NEXT ELEMENT" = UNSET
+
+    ROOT MOUNTPOINT END )
+
+*** mountpoint definition ***
+
+    A mountpoint is an empty location on the screen without any layered elements, drawings,
+    or text that will contain (within bounds) elements and components.
+
+*** Bond::close ***
+
+    Closes connections, files, and decides final response values
+
+*** UI OBJECT / ELEMENTS vs COMPONENTS ***
+
+    An element, or UI object, is the most basic form of how space is taken
+    and drawn on the user interface.
+
+    A component is a styled collection of elements that combines to create
+    a single drawing that can be reused with the only input
+    being a dataset so that those values can be displayed
+    within the component.
+
+    Elements are primarily used for creating the "wireframe" that will
+    contain the components.
+
+    A layout is a preset collection of elements with a set layout for the
+    window. (ex: dashboard, centered log in, etc.)
