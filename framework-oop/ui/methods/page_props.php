@@ -9,15 +9,15 @@
     }
 
     function _scripts(...$vals) {
-        return a("scripts", a($vals));
+        return a("scripts", params($vals));
     }
 
     function _stylesheets(...$vals) {
-        return a("stylesheets", a($vals));
+        return a("stylesheets", params($vals));
     }
 
     function _meta(...$vals) {
-        return a("meta", a($vals));
+        return a("meta", params($vals));
     }
 
     function _urlBase($val) {
