@@ -1,9 +1,9 @@
 <?php
 
 //interface methods
-
-class m {
-
+interface ElementMethods {
+    public function build();
+    public function html();
 }
 
 ?>

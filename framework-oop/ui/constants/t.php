@@ -10,6 +10,12 @@ enum out_t {
     case SCRIPTS_ALL;
 }
 
+enum size_t {
+    case FULL_WIDTH;
+    case FULL_HEIGHT;
+    case FULL_SCREEN;
+}
+
 enum obj_t {
 
 }
