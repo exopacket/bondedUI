@@ -1,6 +1,6 @@
-# bondedUI
+# bondedUI ⚛️
 
-<b>the perfect bond between client side & server side.</b>
+<b>the perfect bond between client side & server side.</b> 
 
 This is a side project and will take some time. It's currently a mess of files..
 
