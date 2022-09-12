@@ -1,27 +1,27 @@
 <?php
 
     function _favicon($val) {
-        return _("favicon", $val);
+        return a("favicon", $val);
     }
 
     function _pageTitle($val) {
-        return _("title", $val);
+        return a("title", $val);
     }
 
     function _scripts(...$vals) {
-        return _("scripts", arr($vals));
+        return a("scripts", a($vals));
     }
 
     function _stylesheets(...$vals) {
-        return _("stylesheets", arr($vals));
+        return a("stylesheets", a($vals));
     }
 
     function _meta(...$vals) {
-        return _("meta", arr($vals));
+        return a("meta", a($vals));
     }
 
     function _urlBase($val) {
-        return _("url_base", $val);
+        return a("url_base", $val);
     }
 
 ?>

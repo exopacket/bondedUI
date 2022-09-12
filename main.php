@@ -1,36 +1,31 @@
 <?php
 
-    namespace ui;
+    //include "MyApplication.php";
+    include $_SERVER["DOCUMENT_ROOT"] . "/bondedUI/framework-oop/Bond.php";
 
-    include "MyApplication.php";
+    //Bond::start(MyApplication::load());
 
-    // BEGIN INCLUDES
-    include "framework-oop/Bond.php";
+    Bond::required();
 
-    Bond::start(MyApplication::load());
-
-    Bond::imports(IMPORTS::DEFAULTS());
-
-    Bond::in(new Page([
+    Bond::in(new Page(
+        builder(
             _pageTitle("Test"),
             _favicon("/path/to/favicon"),
             _urlBase("https://www.testing.com"),
-        ])
+        ))
     );
 
-    Bond::out(out_t::STYLESHEETS_ALL);
+    //Bond::out(out_t::STYLESHEETS_ALL);
 
     //TODO
-    Bond::in(new Layout(
-        _(
-            o("mountpoints", a("1", "2", "3", "4"))
-        )
-    ));
+    Bond::in(new Layout(builder(
+        _mountpoints("app1", "app2", "app3")
+    )));
 
-    Bond::mount("1"); //...
+    //Bond::mount("1"); //...
 
-    Bond::out(out_t::VARIABLES_ALL, out_t::SCRIPTS_ALL);
+    //Bond::out(out_t::VARIABLES_ALL, out_t::SCRIPTS_ALL);
 
-    Bond::close();
+    Bond::create();
 
 ?>
