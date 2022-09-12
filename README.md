@@ -10,4 +10,4 @@ The purpose of this is to quickly produce web applications using the Vue.js fram
 
 <b>Think SwiftUI or Flutter! .. but for PHP </b>
 
-Currently the tailwind ui kit is being used for the built PHP components.
+Currently the tailwind ui kit is being used for the built PHP components. (Hopefully) when complete there will be a collection of PHP elements that were created around Vue.js, you'll select the ones to include in your "Application", and then simply write the client side and server side code with one file. This will help you write web applications with better SEO, security, page loading times, and the overall simplicity of writing and using a web application.
