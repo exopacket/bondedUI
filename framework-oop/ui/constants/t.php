@@ -1,7 +1,5 @@
 <?php
 
-
-
 //types
 
 enum out_t {

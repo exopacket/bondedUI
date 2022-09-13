@@ -11,6 +11,8 @@ class Bond {
 
     public static function start($app): void {
 
+
+
     }
 
     public static function required(...$params) {
@@ -51,6 +53,8 @@ class Bond {
     }
 
     public static function mount($where, $what): void {
+
+
 
     }
 

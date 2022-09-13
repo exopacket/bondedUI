@@ -1214,7 +1214,7 @@ $.extend( $.effects, {
 					"block",
 				visibility: "hidden",
 
-				// Margins need to be set to account for margin collapse
+				// Margin need to be set to account for margin collapse
 				marginTop: element.css( "marginTop" ),
 				marginBottom: element.css( "marginBottom" ),
 				marginLeft: element.css( "marginLeft" ),

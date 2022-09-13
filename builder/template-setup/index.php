@@ -11,7 +11,7 @@ if ($firstLine != "#empty") {
     $filename = str_replace("#", "", $firstLine);
 }
 
-$componentsDir = "../vue-components/";
+$componentsDir = "./configurations";
 
 $files = scandir($componentsDir);
 
@@ -114,8 +114,8 @@ $files = scandir($componentsDir);
                         for ($i = 0; $i < count($files); $i++) {
 
                             $file = $files[$i];
-                            if (str_contains($file, ".vue")) {
-                                $_file = str_replace(".vue", "", $file);
+                            if (str_contains($file, ".bonded")) {
+                                $_file = str_replace(".bonded", "", $file);
                                 echo "<li><a class=\"dropdown-item\" href=\"javascript: selectSuggestion('$_file')\">$_file</a></li>";
                             }
 
@@ -183,6 +183,8 @@ $files = scandir($componentsDir);
 
 <script>
 
+    let currentView = 1;
+
     window.onload = function () {
         loadVue(true);
     }
@@ -231,6 +233,8 @@ $files = scandir($componentsDir);
 
         loadVue(false);
 
+        currentView = 2;
+
     }
 
     function editor() {
@@ -243,9 +247,17 @@ $files = scandir($componentsDir);
 
         loadVue(false);
 
+        currentView = 1;
+
     }
 
     function loadFile() {
+
+        if(currentView == 1) {
+            editor();
+        } else if(currentView == 2) {
+            preview();
+        }
 
     }
 

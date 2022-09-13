@@ -2,8 +2,7 @@
 
 
 
-class ZPositioned extends Element
-{
+class ZPositioned extends Element {
 
     public function __construct() {
 

@@ -1,0 +1,27 @@
+info { 
+	name = "ExampleABCDE";
+	sfc_file = "example.vue";
+	sfc_path = "vue-components/";
+	class_name = "Example";
+	description = "My description";
+	author = "Ryan Fitzgerald";
+	static_only = true;
+	dark_light_themed = false;
+} 
+
+template { 
+
+	html { 
+		"<div><h1>{{ message }}</h1></div>"
+	} 
+
+	params { 
+		[]
+	} 
+
+	ui { 
+		methods = [];
+		listeners = [];
+	} 
+
+} 

@@ -24,9 +24,9 @@
 
     (function () {
         var data = [{
-            text: 'bondedUI Configuration',
-            href: 'javascript: getEditorUpdate(0)',
-            icon: 'fa fa-file-code-o',
+            text: 'Global Variables',
+            href: 'javascript: getEditorUpdate(5)',
+            icon: 'fa fa-info',
         }, {
             text: 'HTML',
             href: 'javascript: getEditorUpdate(1)',
@@ -46,7 +46,12 @@
                 text: 'Tasks',
                 href: 'javascript: getEditorUpdate(4)',
                 icon: 'fa fa-terminal',
-            }
+            },
+            {
+                text: 'bondedUI Configuration',
+                href: 'javascript: getEditorUpdate(0)',
+                icon: 'fa fa-file-code-o',
+            },
         ];
         var defaults = Plugin.getDefaults("treeview");
 

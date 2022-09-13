@@ -2,11 +2,10 @@
 
 
 
-class Text extends Element
-{
+class Text extends Element {
 
-    public function build()
-    {
+    public function build() {
         // TODO: Implement build() method.
     }
+
 }

@@ -1,15 +1,16 @@
 let codeMirrorEditor;
+let htmlEditorContent = "";
+let configEditorContent = "";
 
 function getEditorUpdate(index) {
 
-    console.log("TEST");
-
     $.get("get-builder.php", {
-            request_type: "update"
+            request_type: "update",
+            request_data: JSON.stringify({file: currentFilename})
         },
         function (data) {
 
-            console.log(index);
+            //console.log(data);
 
             let obj = data;//JSON.parse(data);
 
@@ -21,7 +22,8 @@ function getEditorUpdate(index) {
                     displayView(1, obj);
                     break;
                 default:
-                    displayView(0, obj["hyper_file"]);
+                    displayView(5, obj);
+                    updateData(obj, 1);
                     break;
             }
 
@@ -40,6 +42,9 @@ function displayView(index, data) {
     let dataOptions = $("#data-options");
     let htmlOptions = $("#html-options");
     let configOptions = $("#configuration-options");
+    let variablesOptions = $("#variables-options");
+    let codeEditor = $("#code-editor-container");
+    let variablesForm = $("#variables-form");
 
     let txt_codeOnly = $("#code-view-only-content");
 
@@ -51,6 +56,11 @@ function displayView(index, data) {
         dataOptions.hide();
         htmlOptions.hide();
         configOptions.show();
+        codeEditor.show();
+        variablesOptions.hide();
+        variablesForm.hide();
+
+        /*
 
         if (codeMirrorEditor) {
             codeMirrorEditor.setValue(data);
@@ -73,7 +83,7 @@ function displayView(index, data) {
             })
 
         }
-
+*/
     } else if (index == 1) {
 
         rightListGroup.show();
@@ -82,6 +92,11 @@ function displayView(index, data) {
         dataOptions.hide();
         htmlOptions.show();
         configOptions.hide();
+        codeEditor.show();
+        variablesOptions.hide();
+        variablesForm.hide();
+
+        /*
 
         if (codeMirrorEditor) {
             codeMirrorEditor.setValue(data["template"]["html"]);
@@ -93,6 +108,9 @@ function displayView(index, data) {
             })
         }
 
+
+         */
+
     } else if (index == 2) {
 
         rightListGroup.show();
@@ -101,16 +119,130 @@ function displayView(index, data) {
         dataOptions.show();
         htmlOptions.hide();
         configOptions.hide();
+        codeEditor.hide();
+        variablesOptions.hide();
+        variablesForm.hide();
 
-        if (codeMirrorEditor) {
-            codeMirrorEditor.setValue(data);
-            codeMirrorEditor.clearHistory();
-            //codeMirrorEditor.setMode("text/html");
-            codeMirrorEditor.on("keyup", function (cm, event) {
-                console.log("keyup");
-                getHtmlDataSidebar(data);
-            })
+    } else if(index == 3) {
+
+
+    } else if(index == 4) {
+
+    } else {
+
+        rightListGroup.hide();
+        tasksOptions.hide();
+        uiOptions.hide();
+        dataOptions.hide();
+        htmlOptions.hide();
+        configOptions.hide();
+        codeEditor.hide();
+        variablesOptions.show();
+        variablesForm.show();
+
+    }
+
+}
+
+function updateVariables(e) {
+
+    let val = $(e).val();
+    let id = e.getAttribute("id");
+
+    let _id = "";
+
+    switch(id) {
+        case "component-name":
+            _id = "name";
+            break;
+        case "component-classname":
+            _id = "class_name";
+            break;
+        case "sfc-path":
+            _id = "sfc_path";
+            break;
+        case "sfc-file":
+            _id = "sfc_file";
+            break;
+        case "component-description":
+            _id = "description";
+            break;
+        case "component-author":
+            _id = "author";
+            break;
+    }
+
+    $.get("get-builder.php", {
+            request_type: "update_vars",
+            request_data: JSON.stringify({id: _id, val: val, file: currentFilename})
+        },
+        function (data) {
+
+            let obj = data;
+            updateData(obj, 5);
+
         }
+    )
+
+}
+
+function updateVariablesCheckbox(e) {
+
+    let id = e.getAttribute("id");
+
+    let _id = "";
+
+    switch(id) {
+        case "static-content":
+            _id = "static_only";
+            break;
+        case "dark-light-themed":
+            _id = "dark_light_themed";
+            break;
+    }
+
+    let val = document.getElementById(id).checked;
+
+    $.get("get-builder.php", {
+            request_type: "update_vars",
+            request_data: JSON.stringify({id: _id, val: val, file: currentFilename})
+        },
+        function (data) {
+
+            let obj = data;
+            updateData(obj, 5);
+
+        }
+    )
+
+}
+
+function updateData(obj, toSkip) {
+
+    configEditorContent = obj["hyper_file"];
+    htmlEditorContent = obj['template']['html'];
+
+    let name = $("#component-name");
+    let classname = $("#component-classname");
+    let sfc_path = $("#sfc-path");
+    let sfc_file = $("#sfc-file");
+    let description = $("#component-description");
+    let author = $("#component-author");
+    let static_only = $("#static-content");
+    let dark_light = $("#dark-light-themed");
+
+    if(toSkip != 5) {
+
+        let vars = obj['info'];
+
+        name.val(vars['name']);
+        classname.val(vars['class_name']);
+        sfc_file.val(vars['sfc_file']);
+        sfc_path.val(vars['sfc_path']);
+        author.val(vars['author']);
+        description.val(vars['description']);
+        static_only.prop("checked", vars['static_only']);
+        dark_light.prop("checked", vars['dark_light_themed']);
 
     }
 

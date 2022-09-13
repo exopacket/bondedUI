@@ -1,4 +1,23 @@
 <?php
+/*
+   editor.src = "code-editor/code-editor.php?name="
+            + encodeURIComponent(name) + "&onload=" + ((isOnLoad) ? "true" : "false");
+ */
+
+$isOnLoad = false;
+$componentName = "";
+
+if(isset($_GET['onload'])) {
+    if($_GET['onload'] == "true") $isOnLoad = true;
+}
+
+$filename = "";
+
+if(isset($_GET['name'])) {
+
+    $filename = $_GET['name'];
+
+} else { die(); }
 
 ?>
 <!doctype html>
@@ -141,9 +160,7 @@
                         <a class="navbar-brand" href="#">bondedUI Builder</a>
                         <div class="navbar-nav mr-auto" style="margin-left: auto; margin-right: 25px !important;">
                             <ul class="nav navbar-nav">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">Start Fresh</a>
-                                </li>
+
                             </ul>
                         </div>
                     </nav>
@@ -189,11 +206,80 @@
                         </div>
                     </nav>
                 </div>
-                <div class="col" style="height: 100%">
+                <div id="variables-options" style="display: none;">
+                    <nav id="configuration-nav" class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a class="navbar-brand" href="#">Global Variables</a>
+                        <div class="navbar-nav mr-auto" style="margin-left: auto; margin-right: 25px !important;">
+                            <ul class="nav navbar-nav">
+
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col" style="height: 100%; display: none;" id="code-editor-container">
                     <textarea id="code-view-only-content"></textarea>
                 </div>
+                <div class="col" style="height: 100%; padding: 30px;" id="variables-form">
+                    <form>
+
+                        <h5 class="mb-3">Component Information</h5>
+
+                        <hr class="my-4">
+
+                        <div class="row g-3" style="margin-bottom: 20px;">
+                            <div class="col-sm-6">
+                                <label for="component-name" class="form-label">Component Name</label>
+                                <input type="text" class="form-control" id="component-name" placeholder="dashboard" value="" required onkeyup="updateVariables(this)">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="component-classname" class="form-label">Component Class Name</label>
+                                <input type="text" class="form-control" id="component-classname" placeholder="Dashboard" value="" required onkeyup="updateVariables(this)">
+                            </div>
+                        </div>
+
+                        <div class="row g-3" style="margin-bottom: 20px;">
+                            <div class="col-sm-6">
+                                <label for="sfc-path" class="form-label">Single-File Components Path</label>
+                                <input type="text" class="form-control" id="sfc-path" placeholder="/path/to/vue/components" value="" required onkeyup="updateVariables(this)">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="sfc-file" class="form-label">Single-File Component Filename</label>
+                                <input type="text" class="form-control" id="sfc-file" placeholder="light-with-header-icons.vue" value="" required onkeyup="updateVariables(this)">
+                            </div>
+                        </div>
+
+                        <div class="row g-3" style="margin-bottom: 30px;">
+                            <div class="col-sm-12">
+                                <label for="component-description" class="form-label">Component Description</label>
+                                <textarea class="form-control" id="component-description" placeholder="Light Themed Dashboard with Header and Icons" value="" required onkeyup="updateVariables(this)"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row g-3" style="margin-bottom: 30px;">
+                            <div class="col-sm-12">
+                                <label for="component-author" class="form-label">Author</label>
+                                <input type="text" class="form-control" id="component-author" placeholder="John Doe (@john)" value="" required onkeyup="updateVariables(this)">
+                            </div>
+                        </div>
+
+                        <h5 class="mb-3">Other Variables</h5>
+
+                        <hr class="my-4">
+
+                        <div class="form-check">
+                            <input type="checkbox" class="" id="static-content" onchange="updateVariablesCheckbox(this)">
+                            <label class="form-check-label" for="static-content">Static content only</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="" id="dark-light-themed" onchange="updateVariablesCheckbox(this)">
+                            <label class="form-check-label" for="dark-light-themed">Dark and Light themed</label>
+                        </div>
+
+                    </form>
+                </div>
                 <div id="right-list-group" class="col-4"
-                     style="margin-right: 20px; margin-top: 5px; overflow: scroll; height: calc(100% - 100px);">
+                     style="margin-right: 20px; margin-top: 5px; overflow: scroll; height: calc(100% - 100px); display: none;">
                     <h5 style="margin-bottom: 15px;">Data</h5>
                     <div class="list-group">
                         <a href="#" class="list-group-item list-group-item-action
@@ -814,7 +900,13 @@
 <script src="../assets/dist/code-editor/js/Plugin/switchery.js"></script>
 <script src="../assets/dist/code-editor/js/Plugin/bootstrap-treeview.js"></script>
 
-<script src="./code-editor.js?v=9"></script>
+<script>
+
+    let currentFilename = "<?php echo $filename; ?>";
+
+</script>
+
+<script src="./code-editor.js?v=11"></script>
 
 
 <script>
