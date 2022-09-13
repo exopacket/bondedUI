@@ -184,6 +184,7 @@ $files = scandir($componentsDir);
 <script>
 
     let currentView = 1;
+    let filename = "<?php echo $filename; ?>";
 
     window.onload = function () {
         loadVue(true);
@@ -191,8 +192,7 @@ $files = scandir($componentsDir);
 
     function loadVue(isOnLoad) {
 
-        const name = "<?php echo $filename; ?>";
-        const val = name + ".vue";
+        const val = filename + ".bonded";
 
         const frame = document.getElementById("main-iframe");
         frame.src = "iframe-src.php?filepath=" + encodeURIComponent(val);
@@ -209,7 +209,7 @@ $files = scandir($componentsDir);
 
         const editor = document.getElementById("editor-iframe");
         editor.src = "code-editor/code-editor.php?name="
-            + encodeURIComponent(name) + "&onload=" + ((isOnLoad) ? "true" : "false");
+            + encodeURIComponent(filename) + "&onload=" + ((isOnLoad) ? "true" : "false");
 
         editor.onload = function () {
 
@@ -252,6 +252,8 @@ $files = scandir($componentsDir);
     }
 
     function loadFile() {
+
+        filename = $("#file-input").val();
 
         if(currentView == 1) {
             editor();
