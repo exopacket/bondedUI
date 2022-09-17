@@ -40,7 +40,7 @@
         public static function purplePage() {
 
             //TODO create listener, generate javascript -> wireframe update -> mount update -> component update
-            //TODO contd... show loader, load page with history API & GET parameter
+            //TODO contd... show loader, load page with GET parameter
             return self::client()->changePage("purple.php");
 
         }
@@ -81,7 +81,7 @@
                 _data(
                     builder(
                         //_get("DashboardHandler", "getCounterValue"),
-                        _set("company_name", "Acme Widgets, Inc", "")
+                        _set("counter", 1)
                     )
                 )
             ),
