@@ -2,9 +2,11 @@
 
 <b>a full stack framework that's the perfect bond between client side & server side.</b> 
 
-This is a side project and will take some time. It's currently a mess of files..
+This is a side project and will take some time. It's currently a mess of files..<br>
 
-<br><br>When complete this repo will contain a component viewer, editor, and PHP component generator to use with the larger PHP framework that combines the client side and server side processes into one code base. Vue.js will still be used, however, you will import the Vue.js components and use them as PHP components.
+<b>The code as it is currently does not work. Check out the syntax to get familiar before the release and documentation.</b>
+
+<br>When complete this repo will contain a component viewer, editor, and PHP component generator to use with the larger PHP framework that combines the client side and server side processes into one code base. Vue.js will still be used, however, you will import the Vue.js components and use them as PHP components.
 
 The purpose of this is to quickly produce web applications using PHP as a full stack framework.
 
