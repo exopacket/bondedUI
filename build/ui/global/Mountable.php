@@ -12,6 +12,7 @@ abstract class Mountable {
     private array $actions = array();
     private array $content = array();
     private array $children = array();
+    private string $name;
 
     public function __construct(...$args) {
 
@@ -63,7 +64,6 @@ abstract class Mountable {
         $value = $html;
         foreach($this->content as $item) {
             $regex = "/({{)(\\s+)?(" . preg_quote($item[1]) . ")(\\s+)?(}})/";
-            $value = $item[3];
             $value = preg_replace($regex, $this->getDataVariable($item[1]), $value);
         }
         return $value;
@@ -77,9 +77,7 @@ abstract class Mountable {
         return $html;
     }
 
-    public function jsComponent() : JsComponent {
-        return new JsComponent("", "", script_t::ONLOAD, load_t::AFTER_BODY, return_t::WITH_OUT, "");
-    }
+    protected abstract function getClassname();
 
     private function getDataVariable($name) {
 
@@ -100,9 +98,11 @@ abstract class Mountable {
             return $this->data()->$arr[2];
         } else if($arr[0] == content_t::OBJECT) {
             $keys = $arr[3];
-            $dataVariable = $this->data();
+            $dataVariable = $this->data;
             foreach($keys as $key) {
-                $dataVariable = $dataVariable->$key;
+                $key = preg_replace("/\\s+/", "", $key);
+                if($key == "data") continue;
+                $dataVariable = $dataVariable->{$key};
             }
             return $dataVariable;
         } else if($arr[0] == content_t::ARRAY) {

@@ -79,7 +79,7 @@ class Bond {
                 foreach(self::$mounted as $component) {
                    // $component[1]->
                 }
-                self::$page->setVariables(self::$mounted[0][1]->getVars());
+                //self::$page->setVariables(self::$mounted->getVars());
             }
 
             if($params[$i] == out_t::ONLOAD) {
@@ -98,7 +98,7 @@ class Bond {
 
             for($i=0; $i<count($children); $i++) {
 
-                if($children[$i]->getId() == $where) {
+                if($children[$i]->getName() == $where) {
                     $what->setHandler(self::$handler);
                     $children[$i]->setChild($what);
                     array_push(self::$mounted, array($where, $what));

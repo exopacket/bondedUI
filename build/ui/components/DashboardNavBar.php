@@ -114,6 +114,10 @@ class DashboardNavBar extends Mountable {
      }
      */
 
+    protected function getClassname(){
+        return get_class(self::class);
+    }
+
     protected function template() {
 
         return '<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
@@ -130,5 +134,4 @@ class DashboardNavBar extends Mountable {
                 </header>';
 
     }
-
 }

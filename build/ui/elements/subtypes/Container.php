@@ -6,6 +6,7 @@ class Container extends Element {
 
     public function __construct(...$params) {
         $this->id = "app";
+        $this->name = "app";
     }
 
     public function build() {

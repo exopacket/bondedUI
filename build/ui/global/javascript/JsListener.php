@@ -24,7 +24,7 @@ class JsListener {
 
     public function create($className, $htmlId) {
         $this->htmlId = $htmlId;
-        $this->function = new JsFunction($this->functionName, new Callback($className, $htmlId, $this->functionName, $this->params), $this->params);
+        $this->function = new JsFunction($this->functionName, new Callback($className, $htmlId, $this->functionName, ElementMapper::getId($this->functionName), $this->params), $this->params);
         $this->onload = new JsOnload($this->functionName);
     }
 

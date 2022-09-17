@@ -32,8 +32,9 @@
 
             $key =  $params[$i][0];
             $val = $params[$i][1];
+            if(is_array($val)) $val = $val[0];
 
-            $obj->$key = $val;
+            $obj->{$key} = $val;
 
         }
 

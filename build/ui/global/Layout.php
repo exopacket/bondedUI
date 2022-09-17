@@ -14,7 +14,7 @@ class Layout {
             }
 
             if($params[$i] instanceof Element) {
-               array_push($this->children, $params[$i]);
+                array_push($this->children, $params[$i]);
             }
 
         }

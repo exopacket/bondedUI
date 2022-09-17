@@ -81,7 +81,7 @@
                 _data(
                     builder(
                         //_get("DashboardHandler", "getCounterValue"),
-                        _set("company_name", "Acme Widgets, Inc", "")
+                        _set("counter", 1)
                     )
                 )
             ),

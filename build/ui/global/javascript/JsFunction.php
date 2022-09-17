@@ -14,7 +14,7 @@ class JsFunction extends Script {
         if($functionBody instanceof Callback) $this->callback = $functionBody;
         else $this->functionBody = $functionBody;
         $this->params = params($params);
-        $this->functionId = Script::createId();
+        $this->functionId = ElementMapper::getNewId($this->functionName);
         parent::__construct($functionName,
             $functionBody, script_t::GLOBAL_FUNCTION,
             load_t::AFTER_BODY, return_t::FILE, $this->functionId);
