@@ -40,7 +40,7 @@
         public static function purplePage() {
 
             //TODO create listener, generate javascript -> wireframe update -> mount update -> component update
-            //TODO contd... show loader, load page with GET parameter
+            //TODO contd... show loader, load page with history API & GET parameter
             return self::client()->changePage("purple.php");
 
         }
