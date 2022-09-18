@@ -9,6 +9,7 @@ class Bond {
     private static $mountpoints = array();
     private static $mounted = array();
     private static Handler $handler;
+    private static array $clientScripts = array();
 
     public static function start($app): void {
 
@@ -39,6 +40,11 @@ class Bond {
             return;
         }
 
+        if($obj instanceof Script) {
+            self::addScript($obj);
+            return;
+        }
+
     }
 
     public static function getApi() {
@@ -48,6 +54,29 @@ class Bond {
     private static function setPage($page) {
 
         self::$page = $page;
+
+    }
+
+    public static function getHandlerClassName() {
+        get_class(self::$handler);
+    }
+
+    private static function addClientHandlerObject($object) {
+
+    }
+
+    private static function addListener($script) {
+        foreach($script->getObjects() as $object) {
+            array_push(self::$clientScripts, $object);
+        }
+    }
+
+    private static function addScript($script) {
+
+        //TODO check for duplicates
+
+        array_push(self::$clientScripts, $script);
+
 
     }
 
@@ -96,12 +125,13 @@ class Bond {
 
             $children = self::$layout->getChildren();
 
-            for($i=0; $i<count($children); $i++) {
+            foreach($children as $child) {
 
-                if($children[$i]->getName() == $where) {
-                    $what->setHandler(self::$handler);
-                    $children[$i]->setChild($what);
-                    array_push(self::$mounted, array($where, $what));
+                if($child->getName() == $where) {
+                    $what->setVars(self::$handler);
+                    $child->setChild($what);
+                    $elemId = $child->getId();
+                    array_push(self::$mounted, array($elemId, $what));
                     break;
                 }
 
@@ -121,7 +151,7 @@ class Bond {
         else throw new Exception("Page is not set.");
         if(isset(self::$layout)) echo self::$layout->body();
         else throw new Exception("Layout is not set.");
-        if(isset(self::$page)) echo self::$page->end();
+        if(isset(self::$page)) echo self::$page->end(self::$clientScripts);
         else throw new Exception("Page is not set.");
         echo "</html>";
 

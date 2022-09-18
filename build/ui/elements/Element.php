@@ -6,6 +6,13 @@ abstract class Element implements ElementMethods {
     protected $id;
     protected $name;
 
+    public function __construct($obj) {
+        if(isset($obj->name)) {
+            $this->name = $obj->name;
+            $this->id = ElementMapper::getNewId($this->name);
+        }
+    }
+
     public function html(){
         return $this->build();
     }

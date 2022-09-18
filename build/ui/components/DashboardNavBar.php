@@ -7,13 +7,15 @@ class ClientInterface {
 
     public function javascript($functionName, $code) {
 
-        return new JsFunction($functionName, $code);
+        $function = new JsFunction($functionName, $code);
+        $function->setTypes(script_t::GLOBAL_FUNCTION, load_t::AFTER_BODY, return_t::WITH_OUT);
+        Bond::getHandler()::addObject($function);
 
     }
 
     public function update($component, $children) {
 
-        return new JsUpdateWindow($component, $children);
+        Bond::getHandler()::addObject(new JsUpdateWindow($component, $children));
 
     }
 
@@ -84,35 +86,6 @@ class DashboardNavBar extends Mountable {
     public function __construct(...$params) {
         parent::__construct($params);
     }
-
-
-
-    /*
-     *
-     *
-     *
-     *
-     *
-     function data() {
-           return $api->call->getUserData();
-     }
-     function goHomeHandler() {
-        //generates javascript with history API and dynamic load
-        $client->loadPage("index.php");
-     }
-     function signOutHandler() {
-        //generates javascript
-        $api->fetch->signOut(); //client calls ajax / api
-        $api->call->signOut(); //alternative per page; client calls current page with task; returns as api
-     }
-     function incrementHandler() {
-
-            $client->javascript('
-                data.counter++;
-            ');
-
-     }
-     */
 
     protected function getClassname(){
         return get_class(self::class);

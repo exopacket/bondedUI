@@ -9,7 +9,7 @@
     }
 
     function _setId($val) {
-
+        return a("name", $val);
     }
 
     function _child($val) {

@@ -25,6 +25,7 @@ enum script_t {
     case GLOBAL_FUNCTION;
     case LISTENER;
     case VARIABLE;
+    case COMPONENT;
 }
 
 enum return_t {
@@ -33,8 +34,7 @@ enum return_t {
 }
 
 enum action_t: string {
-    case ONCLICK = "onclick";
-    case HREF = "href";
+    case ONCLICK = "click";
 }
 
 enum var_t {

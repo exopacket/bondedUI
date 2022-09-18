@@ -5,7 +5,12 @@ abstract class Handler {
     private static ClientInterface $client;
     private static ApiInterface $api;
     private static array $listeners = array();
-    private static array $calls = array();
+    private static array $objects = array();
+
+    public function __construct() {
+        self::$client = new ClientInterface();
+        self::$api = new ApiInterface();
+    }
 
     public static function setClient($client) {
         self::$client = $client;
@@ -19,16 +24,16 @@ abstract class Handler {
         return self::$api;
     }
 
-    public static function addCall($call) {
-        array_push(self::$calls, $call);
+    public static function addObject($object) {
+        array_push(self::$objects, $object);
     }
 
-    public static function clearCalls() {
-        self::$calls = array();
+    public static function clearObjects() {
+        self::$objects = array();
     }
 
-    public static function getCalls() {
-        return self::$calls;
+    public static function getObjects() {
+        return self::$objects;
     }
 
     public static function initialize() {

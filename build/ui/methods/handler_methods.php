@@ -11,21 +11,15 @@
         return Bond::getHandler()::client();
     }
 
+    function _server() {
+
+    }
+
     function _api() {
         return Bond::getHandler()::api();
     }
 
     function _update($component) {
-
-    }
-
-    function _this($call) {
-
-        if(is_callable($call)) {
-            //
-        } else if(is_string($call)) {
-            //call_user_func string(Bond::getHandler()::<function>)
-        }
 
     }
 

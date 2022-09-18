@@ -42,7 +42,7 @@ class Layout {
         return HTML::tag("body", null, $html);
     }
 
-    public function getChildren() {
+    public function getChildren(): array {
         return $this->children;
     }
 

@@ -5,31 +5,41 @@ abstract class Mountable {
 
     private Handler $handler;
     private array $listeners = array();
-    private ClientInterface $client;
-    private ApiInterface $api;
     private $data;
     private array $ids = array();
     private array $actions = array();
     private array $content = array();
     private array $children = array();
-    private string $name;
 
     public function __construct(...$args) {
 
-        $this->client = new ClientInterface();
         $params = $args[0];
+        $this->parseTemplate();
+        $this->handler = Bond::getHandler();
 
         foreach($params as $param) {
             if($param instanceof stdClass) {
                 $this->data = $param->data;
-                $this->client->setVariables($param->data);
+                //$this->client->setVariables($param->data);
             }
             if(is_array($param)) {
                 if($param[0] == "handle") {
                     if(count($param) == 5) {
                         //a("handle", $listenerName, $type, $functionName, $_params);
-                       // __construct($listenerName, $actionType, $functionName, $params)
-                        $listener = new JsListener($param[1], $param[2], $param[3], $param[4]);
+                       // __construct($listenerName, $actionType, $functionName, $htmlId, $params)
+                        $className = get_class($this->handler);
+                        $listenerName = $param[1];
+                        $type = $param[2];
+                        $functionName = $param[3];
+                        $listenerParams = $param[4];
+                        $htmlId = null;
+                        foreach($this->actions as $action) {
+                            if($action[1] == $listenerName) {
+                                $htmlId = $action[2];
+                                break;
+                            }
+                        }
+                        $listener = new JsListener($listenerName, $type, $functionName, $className, $htmlId, $listenerParams);
                         array_push($this->listeners, $listener);
                     } else {
                         //TODO throw exception
@@ -38,11 +48,10 @@ abstract class Mountable {
             }
         }
 
-        $this->parseTemplate();
-
     }
 
     protected abstract function template();
+    protected abstract function getClassname();
 
     public function data() {
 
@@ -76,8 +85,6 @@ abstract class Mountable {
         }
         return $html;
     }
-
-    protected abstract function getClassname();
 
     private function getDataVariable($name) {
 
@@ -194,35 +201,14 @@ abstract class Mountable {
         return $this->client->getVariables();
     }
 
-    public function setHandler($handler) {
+    public function setVars($handler) {
         $this->handler = $handler;
+        //$this->createHandlerObjects();
         foreach(self::getListeners() as $listener) {
-            $listener->create(self::getHandlerClassname(), self::getActionElementId($listener->getName()));
+            //$listener->create(self::getHandlerClassname(), self::getActionElementId($listener->getName()));
             $this->handler::addListener($listener);
         }
         unset($this->listeners);
-    }
-
-    private function getElementId() {
-
-    }
-
-    public function style() {
-
-        return "";
-
-    }
-
-    public function scripts() {
-
-        return $this->client->getScripts();
-
-    }
-
-    private function tasks() {
-
-
-
     }
 
     private function getListeners() {

@@ -14,42 +14,26 @@ abstract class Script {
             return;
         }
 
-        if(!is_string($body) || !is_array($body)) {
+        if(!isset($body) && $scriptType != script_t::LISTENER) {
             return;
-        }
-
-        if(!($scriptType instanceof script_t)) {
-            return;
-        }
-
-        if(!($loadType instanceof load_t)) {
-            return;
-        }
-
-        if(!($returnType instanceof return_t)) {
-            return;
-        }
-
-        if(isset($id)) {
-
-            if (!is_str($id)) {
-
-            }
-
         } else {
-
-
+            if (!is_string($body) && !is_array($body)) {
+                return;
+            }
         }
 
         $this->name = $name;
-        $this->scriptType = $scriptType;
-        $this->loadType = $loadType;
-        $this->returnType = $returnType;
-        if(is_array($this->body)) {
-            $this->body = $body;
-        } else {
-            $this->body = preg_replace("/\\<script\\>/", "", $body); //update to preg_replace
-            $this->body = preg_replace("/\\<\\/script\\>/", "", $this->body);
+        if(isset($scriptType)) $this->scriptType = $scriptType;
+        if(isset($loadType)) $this->loadType = $loadType;
+        if(isset($returnType)) $this->returnType = $returnType;
+
+        if(isset($body)) {
+            if (is_array($this->body)) {
+                $this->body = $body;
+            } else {
+                $this->body = preg_replace("/\\<script\\>/", "", $body); //update to preg_replace
+                $this->body = preg_replace("/\\<\\/script\\>/", "", $this->body);
+            }
         }
 
     }
@@ -77,11 +61,18 @@ abstract class Script {
         }
     }
 
+    public function setTypes($scriptType, $loadType, $returnType) {
+        $this->scriptType = $scriptType;
+        $this->loadType = $loadType;
+        $this->returnType = $returnType;
+    }
+
     public abstract function getJavaScript();
 
     public function end() {
 
-        if($this->loadType == load_t::AFTER_BODY
+        if($this->scriptType == script_t::GLOBAL_FUNCTION &&
+            $this->loadType == load_t::AFTER_BODY
             && $this->returnType == return_t::WITH_OUT) {
 
             return $this->getJavaScript();
@@ -112,12 +103,16 @@ abstract class Script {
 
     }
 
-    /**
-     * @return script_t
-     */
-    public function getScriptType(): script_t
-    {
+    public function getScriptType(): script_t {
         return $this->scriptType;
+    }
+
+    public function getLoadType() : load_t {
+        return $this->loadType;
+    }
+
+    public function getReturnType() : return_t {
+        return $this->returnType;
     }
 
 }

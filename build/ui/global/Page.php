@@ -63,10 +63,9 @@ class Page {
         $this->variables = $variables;
     }
 
-    public function end() {
+    public function end($clientScripts) {
 
-        $onPageScript = $this->variables;
-
+        $htmlScript = ""; //$this->variables;
         /*
 
         foreach($this->variables as $variable) {
@@ -75,7 +74,28 @@ class Page {
 
         */
 
-        echo HTML::tag("script", null, $onPageScript);
+        $onloadArr = array();
+
+        foreach($clientScripts as $script) {
+            $js = $script->onload();
+            if(isset($js)) array_push($onloadArr, $js);
+        }
+
+        if(count($onloadArr)) {
+            $onloadHtml = "window.onload = (event) => { ";
+            foreach($onloadArr as $item) {
+                $onloadHtml .= $item;
+            }
+            $onloadHtml .= " } ";
+            $htmlScript .= $onloadHtml;
+        }
+
+        foreach($clientScripts as $script) {
+            $js = "\n" . $script->end();
+            if(isset($js)) $htmlScript .= $js;
+        }
+
+        echo HTML::tag("script", null, $htmlScript);
 
     }
 
