@@ -1,7 +1,0 @@
-<?php
-
-enum Animation {
-
-}
-
-?>
