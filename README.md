@@ -1,12 +1,14 @@
 # bondedUI ⚛️
 
-<b>the perfect bond between client side & server side.</b> 
+<b>a full stack framework that's the perfect bond between client side & server side.</b> 
 
-This is a side project and will take some time. It's currently a mess of files..
+This is a side project and will take some time. It's currently a mess of files..<br>
 
-<br><br>When complete this repo will contain a Vue.js component viewer, editor, and PHP component generator to use with the larger PHP framework that combines the client side and server side processes into one code base. How the PHP will generate the JavaScript is still being worked through. There will be UI methods that are "built" with the component (things like hiding an html element on button click). There will also be listeners and animations. Some listeners will call the backend to retreive data resources while others will only execute on the clientside. The PHP will have syntax to define the backend's retreival + response and will automatically generate the clientside javascript request for the data. Still trying to work through what the clientside only javascript definition syntax will look like in PHP.
+<b>The code as it is currently does not work. Check out the syntax to get familiar before the release and documentation.</b>
 
-The purpose of this is to quickly produce web applications using the Vue.js framework and PHP together.
+<br>When complete this repo will contain a component viewer, editor, and PHP component generator to use with the larger PHP framework that combines the client side and server side processes into one code base. Vue.js will still be used, however, you will import the Vue.js components and use them as PHP components.
+
+The purpose of this is to quickly produce web applications using PHP as a full stack framework.
 
 <b>Think SwiftUI or Flutter! .. but for PHP </b>
 
