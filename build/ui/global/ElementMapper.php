@@ -26,7 +26,7 @@ class ElementMapper {
                     break;
                 }
             }
-            if($continue) $continue;
+            if($continue) continue;
             $id = $substr;
             break;
         }
