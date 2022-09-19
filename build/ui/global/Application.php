@@ -4,7 +4,6 @@ abstract class Application {
 
     private $themes = array();
     private $layouts = array();
-    private $api;
 
     public function load(): Application {
         return $this;

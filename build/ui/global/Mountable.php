@@ -5,7 +5,7 @@ abstract class Mountable {
 
     private Handler $handler;
     private array $listeners = array();
-    private $data;
+    private stdClass $data;
     private $rootKey;
     private array $ids = array();
     private array $actions = array();
@@ -19,14 +19,13 @@ abstract class Mountable {
         $this->handler = Bond::getHandler();
 
         foreach($params as $param) {
+            if($param instanceof stdClass) {
+                $array = get_object_vars($param);
+                $props = array_keys($array);
+                $this->rootKey = $props[0];
+                $this->data = $param;
+            }
             if(is_array($param)) {
-                if($param[0] == "data") {
-                    $rootKey = $param[0][0];
-                    $this->rootKey = $rootKey;
-                    $data = $param[0][1];
-                    $obj = (object)[];
-                    $this->data = $obj->{$rootKey}->{$data};
-                }
                 if($param[0] == "handle") {
                     if(count($param) == 5) {
                         //a("handle", $listenerName, $type, $functionName, $_params);
@@ -110,10 +109,8 @@ abstract class Mountable {
         } else if($arr[0] == content_t::OBJECT) {
             $keys = $arr[3];
             $dataVariable = $this->data;
-            var_dump($this->data);
             foreach($keys as $key) {
                 $key = preg_replace("/\\s+/", "", $key);
-                if($key == $this->rootKey) continue;
                 $dataVariable = $dataVariable->{$key};
             }
             return $dataVariable;

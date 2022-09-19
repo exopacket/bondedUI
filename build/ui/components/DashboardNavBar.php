@@ -105,7 +105,7 @@ class DashboardNavBar extends Mountable {
          */
 
         return '<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-                  <a {{ #company-title :evenodd }} class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6">TEST {{ data.counter }}</a>
+                  <a {{ #company-title :evenodd }} class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6">TEST {{ app_data.counter }}</a>
                   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button">
                     <span class="navbar-toggler-icon"></span>
                   </button>

@@ -32,6 +32,10 @@ class Color {
         return new Color(array($rgb, $a, self::RGBtoHex($rgb)));
     }
 
+    public function getRgbArr() {
+        return $this->rgb;
+    }
+
     public function setOpacity($opacity) {
         $this->opacity = intval($opacity);
     }
@@ -73,6 +77,10 @@ class Color {
 
         return dechex($rgb[0]) . dechex($rgb[1]) . dechex($rgb[2]);
 
+    }
+
+    public function values(): array {
+        return array($this->rgb, $this->opacity, $this->hex);
     }
 
 }

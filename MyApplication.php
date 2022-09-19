@@ -6,6 +6,7 @@ class MyApplication extends Application {
 
     public function buildThemes(): void {
         // TODO: Implement buildThemes() method.
+
     }
 
     public function buildLayouts(): void {
