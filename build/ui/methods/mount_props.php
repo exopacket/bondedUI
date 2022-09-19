@@ -18,7 +18,7 @@
     }
 
     function _data($rootKey, $input) {
-        return a("data", a($rootKey, $input));
+        return a($rootKey, $input);
     }
 
     function _get($handlerClass, $handlerFunction) {
