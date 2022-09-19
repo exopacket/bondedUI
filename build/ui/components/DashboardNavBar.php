@@ -93,6 +93,36 @@ class DashboardNavBar extends Mountable {
 
     protected function template() {
 
+        /*
+
+            #title (HTML element id)
+            @increment (Event listener name) ** must be used with HTML element ids or # **
+            $table (Child component name/definition)
+            ?default-table (default value for child component) ** must be used with component names ($) **
+            :dark (conditional css class defined in Application PHP class) ** must be used with HTML element ids or # **
+            data.counter (without any starting special character will be recognized as data input)
+
+         */
+
+        return '<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+                  <a {{ #company-title :evenodd }} class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6">TEST {{ data.counter }}</a>
+                  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  {{ $search-bar-child ?search-bar }}
+                  <div class="navbar-nav">
+                    <div class="nav-item text-nowrap">
+                      <a {{ #increment-btn @increment }} class="nav-link px-3">Sign out</a>
+                    </div>
+                  </div>
+                </header>';
+
+    }
+
+    /*
+
+    protected function template() {
+
         return '<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
                   <a {{ #company-title }} class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6">TEST #{{ data.counter }}</a>
                   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button">
@@ -107,4 +137,7 @@ class DashboardNavBar extends Mountable {
                 </header>';
 
     }
+
+    */
+
 }

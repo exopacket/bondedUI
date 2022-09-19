@@ -17,8 +17,8 @@
         } else return a("handle", $listenerName, $type, $listenerName, array());
     }
 
-    function _data($input) {
-        return a("data", $input);
+    function _data($rootKey, $input) {
+        return a("data", a($rootKey, $input));
     }
 
     function _get($handlerClass, $handlerFunction) {

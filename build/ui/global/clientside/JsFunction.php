@@ -43,7 +43,7 @@ class JsFunction extends Script {
 
     }
 
-    public function getCallBack() {
+    public function getCallback() {
         return $this->callback;
     }
 
