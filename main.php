@@ -1,6 +1,7 @@
 <?php
 
     //TODO implement list builder (later...)
+    //TODO implement form builder (later...)
 
     include "MyApplication.php";
     include $_SERVER["DOCUMENT_ROOT"] . "/bondedUI/build/ui/global/Mountable.php";
@@ -80,7 +81,7 @@
 
     Bond::mount("app", new DashboardNavBar(
             builder(
-                _data( //TODO add root object name
+                _data("app_data",
                     builder(
                         //_get("DashboardHandler", "getCounterValue"),
                         _set("counter", 1)
